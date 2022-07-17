@@ -8,12 +8,19 @@ export class DigimonService{
 
   insertdigimon(name:string, level:string){
     const id = uuidv4()
+    console.log(id);
     const newDigimon = new Digimon(id,name,level);
     this.digimons.push(newDigimon);
-    return id;
+    return newDigimon;
   }
 
-  getallDigimon(){
-    return this.digimons
+  getDigimons(){
+    return [...this.digimons];
   }
+
+  getDigimonById(id:string){
+    return this.digimons.find((digi)=> digi.id === id)
+  }
+
+
 }
